@@ -15,7 +15,7 @@ class CastDiscoveryService {
   bool _starting = false;
   Completer<void>? _startCompleter;
 
-  Future<void> _ensureStarted() async {
+  Future<void> _ensureStarted() async { 
     if (_client != null) return;
 
     // another call is already starting → wait for it
