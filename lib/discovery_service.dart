@@ -131,13 +131,14 @@ class CastDiscoveryService {
     return results.toSet().toList();
   }
 
-  Future<void> stop() async {
-    try {
-      final c = _client;
-      if (c != null) {
-        await c.stop();
-      }
-    } catch (_) {}
-    _client = null;
-  }
+ Future<void> stop() async {
+  try {
+    final c = _client;
+    if (c != null) {
+      c.stop(); // <-- no await
+    }
+  } catch (_) {}
+  _client = null;
+}
+
 }
